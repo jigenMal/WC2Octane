@@ -25,7 +25,7 @@ Open WordCreator and load or design a terrain. Save your project. Click on the B
 
 In Octane, open the scripts menu, click on "WC2Octane" (or just type Alt-W as a shortcut). A file chooser dialog will open. Browse to the "bridge.xml" file created by Word Creator and open it. Wait for completition. Done. You will have a new subgraph with a geometry output pin to connect to your render target.
 
-If you made changes in World Creator and want to reload the terrain, you can just repeat the export and import process. If you customized the nodes in Octane you will want to keep the existing nodes, so just rename them, import a new copy of the terrain and copy-paste the new parts you need to replace the old ones. Please keep in mind that the World Creator exporter deletes all the previous files, si it's better to save the scene as an ORBX package to avoid losing the textures.
+If you made changes in World Creator and want to reload the terrain, you can just repeat the export and import process. If you customized the nodes in Octane you will want to keep the existing nodes, so just rename them, import a new copy of the terrain and copy-paste the new parts you need to replace the old ones. Please keep in mind that the World Creator exporter deletes all the previous files, so it's better to save the scene as an ORBX package to avoid losing the textures.
 
 In this video you can see this script in action:
 https://youtu.be/x8Q34tGLuhE
