@@ -13,11 +13,9 @@ You also need a LUA library called xml2lua (https://github.com/manoelcampos/Xml2
 Now that you have the dependecies setup you can download this WC2Octane script: click the green "Clone or Download" button on the upper right of the page and choose "Download ZIP". Extract the file "WC2Octane.lua" (you can ignore the others) and copy it in your Octane LUA Scripts folder. 
 The Octane script directory can be specified in the Octane preferences box, it's the first field in the Application tab.
 
-Open the "WC2Octane.lua" file in a text editor (Notepad is ok) and in these two lines replace the paths with the corrects path on your system:
+Open the "WC2Octane.lua" file in a text editor (Notepad is ok) and in these two lines replace the paths with the corrects path to the two dependecies above on your system (please note the trailing "\" on the second path):
 
-FULL PATH to the ImageMagick executable:  
 local imageMagickPath = [[C:\Program Files\ImageMagick-7.0.8-Q16\magick.exe]]  
-FULL PATH to the folder of the xml2lua package (WITH trailing "\")  
 local xml2luaPath = 	[[X:\Impostazioni\Octane\xml2lua\]]
 
 If Octane is already running, you can rescan the script folder through the Script menu -> Rescan Script folder.
