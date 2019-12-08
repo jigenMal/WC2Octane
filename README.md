@@ -8,9 +8,9 @@ This script works on Windows. I think it can be easily ported to other platforms
 
 The script uses the Image Magick library (https://imagemagick.org) to edit textures. Download ImageMagick Windows binaries here: https://imagemagick.org/script/download.php#windows (the recommended 64bit version is OK), and install it. Take note of the path you installed it (you will need the full path to the "magick.exe" file).
 
-You also need a LUA library called xml2lua (https://github.com/manoelcampos/Xml2Lua). Click the green "Clone or Download" button on the upper right of the page and choose "Download ZIP". Unzip the file in a folder of your preference and take note of it.
+You also need a LUA library called xml2lua (https://github.com/manoelcampos/Xml2Lua). Click the green "Clone or Download" button on the upper right of the page and choose "Download ZIP". Unzip the file in a folder of your preference and take note of its path.
 
-Download this script clicking the green "Clone or Download" button on the upper right of the page and choose "Download ZIP". Extract the file "WC2Octane.lua" (you can ignore the others) and copy it in your Octane LUA Scripts folder. 
+Now that you have the dependecies setup you can download this WC2Octane script: click the green "Clone or Download" button on the upper right of the page and choose "Download ZIP". Extract the file "WC2Octane.lua" (you can ignore the others) and copy it in your Octane LUA Scripts folder. 
 The Octane script directory can be specified in the Octane preferences box, it's the first field in the Application tab.
 
 Open the "WC2Octane.lua" file in a text editor (Notepad is ok) and in these two lines replace the paths with the corrects path on your system:
