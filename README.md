@@ -16,7 +16,7 @@ The Octane script directory can be specified in the Octane preferences box, it's
 Open the "WC2Octane.lua" file in a text editor (Notepad is ok) and in these two lines replace the paths with the corrects path to the two dependecies above on your system (please note the trailing "\" on the second path):
 
 local imageMagickPath = [[C:\Program Files\ImageMagick-7.0.8-Q16\magick.exe]]  
-local xml2luaPath = 	[[X:\Impostazioni\Octane\xml2lua\]]
+local xml2luaPath = 	[[X:\Impostazioni\Octane\xml2lua\\]]
 
 If Octane is already running, you can rescan the script folder through the Script menu -> Rescan Script folder.
 
