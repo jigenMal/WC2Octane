@@ -7,7 +7,7 @@
 -- 	@script-id 		WC2Octane
 --  @description    Imports WorldCreator scene thrugh Bridge Export data
 --  @author         Luca Malisan - www.malisan.it
---  @version        0.2
+--  @version        0.3
 --  @shortcut       alt + w
 
 ------------------------------------------------------------------------------
@@ -352,12 +352,14 @@ meshOut:connectTo(octane.P_INPUT, placeOb)
 -- create displacement node
 planeResolution = math.max(plane.resolutionX,plane.resolutionY)
 --------------------------------------------
--- Vector displacement node (not used, but ready)
-terrainVDisplNode = octane.node.create{type= octane.NT_VERTEX_DISPLACEMENT,name=nodeNamePrefix.." Vertex Displacement",graphOwner  =root}
-terrainVDisplNode:setPinValue(octane.P_AMOUNT,plane.height)
-if planeResolution >= 2048 then terrainVDisplNode:setPinValue(octane.P_SUBD_LEVEL,3)
-elseif planeResolution >= 1024 then terrainVDisplNode:setPinValue(octane.P_SUBD_LEVEL,2)
-else terrainVDisplNode:setPinValue(octane.P_SUBD_LEVEL,1) end
+-- Vector displacement node (not used, but ready) [only if the node is available - version 2019 and up)
+if (octane.NT_VERTEX_DISPLACEMENT > 0) then 
+	terrainVDisplNode = octane.node.create{type= octane.NT_VERTEX_DISPLACEMENT,name=nodeNamePrefix.." Vertex Displacement",graphOwner  =root}
+	terrainVDisplNode:setPinValue(octane.P_AMOUNT,plane.height)
+	if planeResolution >= 2048 then terrainVDisplNode:setPinValue(octane.P_SUBD_LEVEL,3)
+	elseif planeResolution >= 1024 then terrainVDisplNode:setPinValue(octane.P_SUBD_LEVEL,2)
+	else terrainVDisplNode:setPinValue(octane.P_SUBD_LEVEL,1) end
+end
 --------------------------------------------
 -- Texture displacement node
 terrainDisplNode = octane.node.create{type= octane.NT_DISPLACEMENT,name=nodeNamePrefix.." Texture Displacement",graphOwner  =root}
@@ -368,7 +370,7 @@ terrainDisplTransform=octane.node.create{type=octane.NT_TRANSFORM_SCALE,name = n
 terrainDisplTransform:setPinValue(octane.P_SCALE,{1.01,1.01,1.01}) -- scale a bit to avoid issues on border
 heightMapTexNode:connectTo(octane.P_TRANSFORM,terrainDisplTransform)
 terrainDisplNode:connectTo(octane.P_TEXTURE,heightMapTexNode)
-terrainVDisplNode:connectTo(octane.P_TEXTURE,heightMapTexNode)
+if (octane.NT_VERTEX_DISPLACEMENT > 0) then terrainVDisplNode:connectTo(octane.P_TEXTURE,heightMapTexNode) end
 terrainDisplNode:setPinValue(octane.P_FILTER_TYPE,2) --gaussian
 terrainDisplNode:setPinValue(octane.P_FILTERSIZE,2) 
 if planeResolution >= 4096 then terrainDisplNode:setPinValue(octane.P_LEVEL_OF_DETAIL,13) 
