@@ -33,5 +33,5 @@ https://youtu.be/x8Q34tGLuhE
 # Changelog
 0.2: first version
 
-0.3 (current): remove creation of Vertex Displacement Node when it's not available (for compatibility with Octane Render versions previous to 2019)
+0.3 (current): remove creation of Vertex Displacement Node when it's not available (for compatibility with Octane Render versions older than 2019)
 
