@@ -7,7 +7,7 @@
 -- 	@script-id 		WC2Octane
 --  @description    Imports WorldCreator scene thrugh Bridge Export data
 --  @author         Luca Malisan - www.malisan.it
---  @version        0.3
+--  @version        0.31
 --  @shortcut       alt + w
 
 ------------------------------------------------------------------------------
@@ -353,7 +353,7 @@ meshOut:connectTo(octane.P_INPUT, placeOb)
 planeResolution = math.max(plane.resolutionX,plane.resolutionY)
 --------------------------------------------
 -- Vector displacement node (not used, but ready) [only if the node is available - version 2019 and up)
-if (octane.NT_VERTEX_DISPLACEMENT > 0) then 
+if (octane.NT_VERTEX_DISPLACEMENT) then 
 	terrainVDisplNode = octane.node.create{type= octane.NT_VERTEX_DISPLACEMENT,name=nodeNamePrefix.." Vertex Displacement",graphOwner  =root}
 	terrainVDisplNode:setPinValue(octane.P_AMOUNT,plane.height)
 	if planeResolution >= 2048 then terrainVDisplNode:setPinValue(octane.P_SUBD_LEVEL,3)
