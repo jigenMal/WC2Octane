@@ -370,7 +370,7 @@ terrainDisplTransform=octane.node.create{type=octane.NT_TRANSFORM_SCALE,name = n
 terrainDisplTransform:setPinValue(octane.P_SCALE,{1.01,1.01,1.01}) -- scale a bit to avoid issues on border
 heightMapTexNode:connectTo(octane.P_TRANSFORM,terrainDisplTransform)
 terrainDisplNode:connectTo(octane.P_TEXTURE,heightMapTexNode)
-if (octane.NT_VERTEX_DISPLACEMENT > 0) then terrainVDisplNode:connectTo(octane.P_TEXTURE,heightMapTexNode) end
+if (octane.NT_VERTEX_DISPLACEMENT) then terrainVDisplNode:connectTo(octane.P_TEXTURE,heightMapTexNode) end
 terrainDisplNode:setPinValue(octane.P_FILTER_TYPE,2) --gaussian
 terrainDisplNode:setPinValue(octane.P_FILTERSIZE,2) 
 if planeResolution >= 4096 then terrainDisplNode:setPinValue(octane.P_LEVEL_OF_DETAIL,13) 
