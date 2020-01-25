@@ -395,11 +395,20 @@ if file_exists(baseColorTextPath) then
 end
 baseMaterial:connectTo(octane.P_DIFFUSE,baseMaterialMultiplyNode)
 -- create a composite material pin and connects
-planeMaterial = octane.node.create {type= octane.NT_MAT_COMPOSITE, name= nodeNamePrefix.." Main Material",graphOwner  =root}
-planeMaterial:setAttribute(octane.A_MATERIAL_COUNT,#materials+1, false)
-planeMaterial:connectTo(octane.P_DISPLACEMENT, terrainDisplNode)
-planeMaterial:connectToIx(2, baseMaterial)
-meshNode:connectToIx(1, planeMaterial)
+if (octane.NT_MAT_COMPOSITE) then
+	-- octane supports composite materials
+	planeMaterial = octane.node.create {type= octane.NT_MAT_COMPOSITE, name= nodeNamePrefix.." Main Material",graphOwner  =root}
+	planeMaterial:setAttribute(octane.A_MATERIAL_COUNT,#materials+1, false)
+	planeMaterial:connectTo(octane.P_DISPLACEMENT, terrainDisplNode)
+	planeMaterial:connectToIx(2, baseMaterial)
+	meshNode:connectToIx(1, planeMaterial)
+else
+	-- octane does not support composite materials: create basic material and exit
+	baseMaterial:connectTo(octane.P_DISPLACEMENT, terrainDisplNode)
+	meshNode:connectToIx(1, baseMaterial)
+	root:unfold(true) -- tidy up everything
+	error("Base terrain and material created. Can't import other textures: update to a newer version of Octane.")
+end
 
 ---------------------------------------------------------
 -- Create materials
