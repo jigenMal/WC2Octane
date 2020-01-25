@@ -7,7 +7,7 @@
 -- 	@script-id 		WC2Octane
 --  @description    Imports WorldCreator scene thrugh Bridge Export data
 --  @author         Luca Malisan - www.malisan.it
---  @version        0.31
+--  @version        0.4
 --  @shortcut       alt + w
 
 ------------------------------------------------------------------------------
