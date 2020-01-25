@@ -30,9 +30,14 @@ If you made changes in World Creator and want to reload the terrain, you can jus
 In this video you can see this script in action:
 https://youtu.be/x8Q34tGLuhE
 
+# Known Issues
+This script is developed for Octane versions 2018 and up. Some debugging has been made with V4, but not all features are supported. In V4 there isn't a vertex map node creation and only the first base texture can be imported.
+
 # Changelog
 0.2: first version
 
 0.3: remove creation of Vertex Displacement Node when it's not available (for compatibility with Octane Render versions older than 2019)
 
 0.31: corrected error in Vertex Displacement Node check
+
+0.4: corrected an issue with older versions of Octane. Now when composite materials are not supported a basic material is created and there is a clean exit with an information message about the impossibility to import other textures 
